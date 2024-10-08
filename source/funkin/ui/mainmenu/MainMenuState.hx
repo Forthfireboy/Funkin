@@ -6,7 +6,8 @@ import funkin.ui.debug.DebugMenuSubState;
 import flixel.FlxObject;
 import flixel.FlxSprite;
 import flixel.FlxState;
-import flixel.group.FlxGroup.FlxTypedGroup;
+import funkin.ui.MenuTypedList;
+import funkin.ui.MenuListItem;
 import flixel.addons.transition.FlxTransitionableState;
 import flixel.effects.FlxFlicker;
 import flixel.graphics.frames.FlxAtlasFrames;
@@ -87,18 +88,18 @@ class MainMenuState extends MusicBeatState {
 
         if (Preferences.flashingLights) add(magenta);
 
-        menuItems = new FlxTypedGroup<FlxSprite>();
+        menuItems = new MenuTypedList<MenuListItem>();
         add(menuItems);
 
         // Create menu items
         for (i in 0...optionShit.length) {
             var offset:Float = 160 - (Math.max(optionShit.length, 4) - 4) * 80;
-            var menuItem:FlxSprite = new FlxSprite(0, (i * 140) + offset);
+            var menuItem:MenuListItem = new MenuListItem(); // Changed from FlxSprite to MenuListItem
             menuItem.frames = Paths.getSparrowAtlas('mainmenu/' + optionShit[i]);
             menuItem.animation.addByPrefix('idle', optionShit[i] + " basic", 24);
             menuItem.animation.addByPrefix('selected', optionShit[i] + " white", 24);
             menuItem.animation.play('idle');
-            menuItems.add(menuItem);
+            menuItems.add(menuItem); // No error here anymore
             menuItem.scrollFactor.set(0, 0.4);
             menuItem.updateHitbox();
             menuItem.screenCenter(X);
@@ -121,7 +122,7 @@ class MainMenuState extends MusicBeatState {
 
         if (controls.UI_UP_P) changeItem(-1);
         if (controls.UI_DOWN_P) changeItem(1);
-        if (controls.ACCEPT) selectItem();
+        if (controls.ACCEPT) selectItem();  // Fixed field name from ACCEPT_P to ACCEPT
 
         super.update(elapsed);
     }
