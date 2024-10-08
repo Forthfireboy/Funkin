@@ -36,7 +36,7 @@ import io.newgrounds.NG;
 class MainMenuState extends MusicBeatState {
     public static var curSelected:Int = 0;
 
-    var menuItems:FlxTypedGroup<FlxSprite>;
+    var menuItems:FlxSprite;
     var magenta:FlxSprite;
     var camFollow:FlxObject;
 
