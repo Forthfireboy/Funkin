@@ -37,7 +37,7 @@ import io.newgrounds.NG;
 class MainMenuState extends MusicBeatState {
     public static var curSelected:Int = 0;
 
-    var menuItems:MenuTypedList<FlxSprite>;
+    var menuItems:MenuTypedList<MenuListItem>;
 
     var magenta:FlxSprite;
     var camFollow:FlxObject;
@@ -121,7 +121,7 @@ class MainMenuState extends MusicBeatState {
 
         if (controls.UI_UP_P) changeItem(-1);
         if (controls.UI_DOWN_P) changeItem(1);
-        if (controls.ACCEPT_P) selectItem();
+        if (controls.ACCEPT) selectItem();
 
         super.update(elapsed);
     }
