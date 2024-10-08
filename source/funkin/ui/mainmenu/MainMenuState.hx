@@ -4,14 +4,14 @@ import funkin.graphics.FunkinSprite;
 import flixel.addons.transition.FlxTransitionableState;
 import funkin.ui.debug.DebugMenuSubState;
 import flixel.FlxObject;
+import flixel.FlxSprite;
 import flixel.FlxState;
-import funkin.ui.MenuItem;
-import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.addons.transition.FlxTransitionableState;
 import flixel.effects.FlxFlicker;
 import flixel.graphics.frames.FlxAtlasFrames;
 import flixel.util.typeLimit.NextState;
 import flixel.util.FlxColor;
+import flixel.group.FlxTypedGroup;
 import flixel.text.FlxText;
 import funkin.data.song.SongData.SongMusicData;
 import flixel.tweens.FlxEase;
@@ -37,8 +37,7 @@ import io.newgrounds.NG;
 class MainMenuState extends MusicBeatState {
     public static var curSelected:Int = 0;
 
-    var menuItems:MenuTypedList<MenuListItem>;
-
+    var menuItems:FlxTypedGroup<FlxSprite>;
     var magenta:FlxSprite;
     var camFollow:FlxObject;
 
@@ -121,7 +120,7 @@ class MainMenuState extends MusicBeatState {
 
         if (controls.UI_UP_P) changeItem(-1);
         if (controls.UI_DOWN_P) changeItem(1);
-        if (controls.ACCEPT) selectItem();
+        if (controls.ACCEPT_P) selectItem();
 
         super.update(elapsed);
     }
