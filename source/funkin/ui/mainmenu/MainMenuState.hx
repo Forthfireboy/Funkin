@@ -11,7 +11,7 @@ import flixel.effects.FlxFlicker;
 import flixel.graphics.frames.FlxAtlasFrames;
 import flixel.util.typeLimit.NextState;
 import flixel.util.FlxColor;
-import flixel.group.FlxTypedGroup;
+import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.text.FlxText;
 import funkin.data.song.SongData.SongMusicData;
 import flixel.tweens.FlxEase;
