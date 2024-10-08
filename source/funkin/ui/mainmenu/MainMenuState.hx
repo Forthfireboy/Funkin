@@ -4,7 +4,7 @@ import funkin.graphics.FunkinSprite;
 import flixel.addons.transition.FlxTransitionableState;
 import funkin.ui.debug.DebugMenuSubState;
 import flixel.FlxObject;
-import flixel.FlxSprite;
+import funkin.ui.MenuListItem
 import flixel.FlxState;
 import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.addons.transition.FlxTransitionableState;
