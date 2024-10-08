@@ -6,6 +6,7 @@ import funkin.ui.debug.DebugMenuSubState;
 import flixel.FlxObject;
 import flixel.FlxSprite;
 import flixel.FlxState;
+import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.addons.transition.FlxTransitionableState;
 import flixel.effects.FlxFlicker;
 import flixel.graphics.frames.FlxAtlasFrames;
@@ -36,7 +37,8 @@ import io.newgrounds.NG;
 class MainMenuState extends MusicBeatState {
     public static var curSelected:Int = 0;
 
-    var menuItems:FlxSprite;
+    var menuItems:MenuTypedList<AtlasMenuItem>;
+
     var magenta:FlxSprite;
     var camFollow:FlxObject;
 
