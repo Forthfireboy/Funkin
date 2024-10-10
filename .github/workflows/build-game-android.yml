@@ -19,7 +19,8 @@ jobs:
           haxelib git hmm https://github.com/FunkinCrew/hmm.git skip-deps --quiet
           haxelib run hmm install --quiet
           haxelib run lime rebuild hxcpp
-
+          haxelib git flixel https://github.com/mikolka9144/flixel-funkin.git 901df3b291e422e6ac1ea6a838fbc32baf163197 --quiet
+     
       - name: Configure Android
         run: |
           haxelib run lime config ANDROID_SDK $ANDROID_HOME
