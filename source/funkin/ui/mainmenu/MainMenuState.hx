@@ -103,7 +103,7 @@ class MainMenuState extends MusicBeatState {
             menuItem.screenCenter(X);
         }
 
-        var psychVer:FlxText = new FlxText(12, FlxG.height - 44, 0, "Your Game Version", 12);
+        var psychVer:FlxText = new FlxText(12, FlxG.height - 44, 0, "0.5.0", 12); // Update version text
         psychVer.scrollFactor.set();
         psychVer.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
         add(psychVer);
@@ -144,16 +144,19 @@ class MainMenuState extends MusicBeatState {
     }
 
     function selectItem():Void {
-        switch (curSelected) {
-            case 0:
-                FlxG.switchState(() -> new StoryMenuState());
-            case 1:
-                openSubState(new FreeplayState());
-            case 2:
-                FlxG.switchState(() -> new funkin.ui.options.OptionsState());
-            case 3:
-                FlxG.switchState(() -> new funkin.ui.credits.CreditsState());
-        }
+        FlxG.sound.play(Paths.sound('confirmMenu'));
+        FlxFlicker.flicker(menuItems.members[curSelected], 1, 0.06, false, false, function(flick:FlxFlicker) {
+            switch (curSelected) {
+                case 0:
+                    FlxG.switchState(() -> new StoryMenuState());
+                case 1:
+                    openSubState(new FreeplayState());
+                case 2:
+                    FlxG.switchState(() -> new funkin.ui.options.OptionsState());
+                case 3:
+                    FlxG.switchState(() -> new funkin.ui.credits.CreditsState());
+            }
+        });
     }
 
     public function goBack():Void {
